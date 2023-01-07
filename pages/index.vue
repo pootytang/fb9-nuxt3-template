@@ -4,7 +4,7 @@
     <button class="btn-primary" @click="signOut">Sign Out</button>
     <ClientOnly>
       <pre>
-        {{ fbUser }}
+        {{ fbUser.user }}
       </pre>
     </ClientOnly>
   </div>
@@ -15,6 +15,7 @@ import { useUserStore } from "~~/stores/userStore";
 
 const fbUser = useUserStore();
 const creds = ref();
+
 const signIn = async () => {
   const email = "delane@testuser.test";
   const password = "password";
