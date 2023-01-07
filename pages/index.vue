@@ -2,13 +2,18 @@
   <div>
     <button class="btn-primary" @click="signIn">Sign In</button>
     <button class="btn-primary" @click="signOut">Sign Out</button>
-    <pre>
-    {{ creds }}
-    </pre>
+    <ClientOnly>
+      <pre>
+        {{ fbUser }}
+      </pre>
+    </ClientOnly>
   </div>
 </template>
 
 <script setup>
+import { useUserStore } from "~~/stores/userStore";
+
+const fbUser = useUserStore();
 const creds = ref();
 const signIn = async () => {
   const email = "delane@testuser.test";

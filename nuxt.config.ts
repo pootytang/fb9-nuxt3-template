@@ -1,5 +1,13 @@
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: [
+    '@nuxtjs/tailwindcss', 
+    [
+      '@pinia/nuxt', {
+        autoImports: ['defineStore']
+      }
+    ],
+     
+  ],
   runtimeConfig: {
     // The private keys which are only available within server-side
     FIREBASE_API_KEY: process.env.FB_API_KEY,

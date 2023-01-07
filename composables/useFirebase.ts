@@ -1,4 +1,5 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { useUserStore } from "~~/stores/userStore";
 
 export const createUser = async (email: string, password: string) => {
   const auth = getAuth();
@@ -31,6 +32,10 @@ export const signOutUser = async () => {
 
 export const initUser = async () => {
   const auth = getAuth();
+  const fbUser = useUserStore()
+
+  fbUser.user = auth.currentUser
+
   onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -40,6 +45,8 @@ export const initUser = async () => {
     } else {
       console.log(`useFirebase.initUser()-->Auth State Changed: ${user}`)
     }
+
+    fbUser.user = user
   });
 }
 
