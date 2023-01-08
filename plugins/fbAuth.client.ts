@@ -15,7 +15,7 @@ export default defineNuxtPlugin(nuxtApp => {
 
   // Provide getAuth to the rest of the app 
   //(not sure why we need to make it available to the vueapp as well as the nuxt app)
-  const fbAuth = getAuth()
+  const fbAuth = getAuth(app)
   nuxtApp.vueApp.provide('fbAuth', fbAuth)
   nuxtApp.provide('fbAuth', fbAuth)
 })
