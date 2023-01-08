@@ -1,6 +1,8 @@
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+
 export const useUserStore = defineStore('user',{
   state: () => ({
-    user: {},
+    user: null,
     peopleWhoOweMe: [],
     peopleIOwe: [],
     authError: false
@@ -32,6 +34,30 @@ export const useUserStore = defineStore('user',{
         return this.authError
       }
       this.$reset()
-    }
+    },
+
+    async registerUser() {
+
+    },
+
+    async signInUserWithEmail() {
+
+    },
+
+    async monitorUser() {
+      const auth = getAuth();
+
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          console.log('userStore.onAuthStateChanged --> user is signed in')
+        } else {
+          console.log('userStore.onAuthStateChanged --> user is signed out')
+        }
+    
+        this.user = user
+      });
+    },
   }
 })
