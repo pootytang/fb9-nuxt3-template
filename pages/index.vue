@@ -2,6 +2,7 @@
   <div>
     <button class="btn-primary" @click="signIn">Sign In</button>
     <button class="btn-primary" @click="signOut">Sign Out</button>
+    <p><NuxtLink to="/secret">Secret Page</NuxtLink></p>
     <ClientOnly>
       <pre>
         {{ fbUser.user }}

@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 
 export default defineNuxtPlugin(nuxtApp => {
@@ -11,4 +12,10 @@ export default defineNuxtPlugin(nuxtApp => {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   initUser()
+
+  // Provide getAuth to the rest of the app 
+  //(not sure why we need to make it available to the vueapp as well as the nuxt app)
+  const fbAuth = getAuth()
+  nuxtApp.vueApp.provide('fbAuth', fbAuth)
+  nuxtApp.provide('fbAuth', fbAuth)
 })
