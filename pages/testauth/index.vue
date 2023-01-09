@@ -37,7 +37,7 @@ const logInWithGoogle = async () => {
 };
 
 const signOut = async () => {
-  creds.value = await fbAuth.signUserOut();
+  creds.value = await fbUser.signUserOut();
   console.log(`index--> Singed Out Result: ${creds.value}`);
 };
 
