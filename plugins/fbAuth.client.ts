@@ -10,7 +10,7 @@ export default defineNuxtPlugin(nuxtApp => {
   const firebaseConfig = {
     apiKey: config.FB_API_KEY,
     appId: config.FB_APP_ID,
-    // authDomain: config.FB_AUTH_DOMAIN,
+    authDomain: config.FB_AUTH_DOMAIN,
     // projectId: config.env.FB_PROJECT_ID,
     // storageBucket: config.env.FB_STORAGE_BUCKET,
     // messagingSenderId: config.env.FB_MESSAGE_SENDER_ID,
