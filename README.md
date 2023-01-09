@@ -1,8 +1,16 @@
-# Nuxt 3 Minimal Starter
+# Firebase 9, Nuxt 3, Tailwindcss template
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
+
+Set the following in your .env file
+FB_API_KEY="<your api key>"
+FB_APP_ID="<your app id>"
+FB_AUTH_DOMAIN="<your auth domain>"
+FB_PROJECT_ID="<your project id>"
+FB_STORAGE_BUCKET="<your storage bucket>"
+FB_MESSAGE_SENDER_ID="<your message sender id>"
 
 Make sure to install the dependencies:
 
