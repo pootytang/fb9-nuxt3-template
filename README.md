@@ -2,6 +2,9 @@
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+## INFO
+To use this you'll need to create a firebase probject and enable Google Auth and Email auth.
+
 ## Setup
 
 Set the following in your .env file
