@@ -1,7 +1,7 @@
 <script setup>
 import { useUserStore } from "~~/stores/userStore";
 
-const fbUser = useUserStore();
+const fbUser = useUserStore(); //firebase user
 const creds = ref();
 const register_form = ref({
   email: "",
@@ -30,9 +30,9 @@ const logInWithEmail = () => {
   console.log("index.loginWithEmail() --> Credentials: ", creds.value);
 };
 
-const logInWithGoogle = async () => {
+const logInWithProvider = async (provider) => {
   console.log("testauth_index.loginWithGoogle()--> Called");
-  creds.value = await fbUser.signInWithGoogle();
+  creds.value = await fbUser.signInWithSocialProvider(provider);
   console.log("index.loginWithGoogle() --> Credentials: ", creds.value);
 };
 
@@ -67,11 +67,49 @@ function resetForm() {
       </form>
     </div>
     <div>
+      <!-- Facebook -->
       <button
-        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 mr-1 rounded"
-        @click="logInWithGoogle"
+        @click="login('fb')"
+        type="button"
+        data-mdb-ripple="true"
+        data-mdb-ripple-color="light"
+        class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
       >
-        Login With Google
+        <SVGSocialFBIcon class="w-4 h-4" />
+      </button>
+
+      <!-- Twitter -->
+      <button
+        @click="login('tw')"
+        type="button"
+        data-mdb-ripple="true"
+        data-mdb-ripple-color="light"
+        class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+      >
+        <SVGSocialTWIcon class="w-4 h-4" />
+      </button>
+
+      <!-- Github -->
+      <button
+        @click="login('gh')"
+        type="button"
+        data-mdb-ripple="true"
+        data-mdb-ripple-color="light"
+        class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+      >
+        <SVGSocialGHIcon class="w-4 h-4" />
+      </button>
+
+      <!-- Google -->
+      <button
+        @click="login('google')"
+        type="button"
+        data-mdb-ripple="true"
+        data-mdb-ripple-color="light"
+        class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+      >
+        <!-- <SVGSocialGoogleIcon class="w-4 h-4" @click="login('google')" /> -->
+        <SVGSocialGoogleIcon class="w-4 h-4" />
       </button>
       <button
         class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
